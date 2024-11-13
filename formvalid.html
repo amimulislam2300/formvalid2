@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forms</title>
+  </head>
+  <body>
+    <h1>Form Validation</h1>
+    <form action="#" name="f">
+      Name: <br />
+      <input type="text" name="name" onblur="ye_m()" id="name" /> <br />
+      Email: <br />
+      <input type="text" name="email" onblur="my_f()" id="email" /> <br />
+      Password: <br />
+      <input type="password" name="password" onblur="me_o()" id="password" /> <br />
+      Address: <br />
+      <textarea name="address"></textarea> <br />
+      Gender: <br />
+      <input type="radio" name="male" value="male" />Male
+      <input type="radio" name="male" value="female" />Female <br />
+      Course: <br />
+      <select name="sub">
+        <option value="">choose your course</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="js">JS</option>
+      </select>
+      <br />
+      Education: <br />
+      <input type="checkbox" name="eq" value="ssc" />SSC
+      <input type="checkbox" name="eq" value="hsc" />HSC
+      <input type="checkbox" name="eq" value="diploma" />DIPLOMA <br />
+
+      <input type="submit" value="Submit" onclick="yo()" />
+      <input type="reset" value="Reset" />
+    </form>
+
+    <script>
+      function ye_m() {
+        var name = document.getElementById("name");
+        var name2 = /^[0-9A-Za-z]$/;
+        if (!name2.test(name.value)) {
+          alert("please enter valid email");
+          return false;
+        } else {}
+        return true;
+      }
+
+      function my_f() {
+        var eml = document.getElementById("email");
+        var eml2 = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
+        if (!eml2.test(email.value)){
+          alert("please enter valid email");
+          return false;
+        } else {
+            return true;
+
+        }
+       
+      }
+
+      function me_o() {
+        var password = document.getElementById("password");
+        var password2 = /^[0-9A-Za-z]$/;
+        if (!password2.test(password.value)) {
+          alert("please invalid password");
+          return false;
+        } else {
+          return true;
+        }
+      }
+
+      function yo() {
+        var name = document.f.name.value;
+        var email = document.f.email.value;
+        var password = document.f.password.value;
+        var address = document.f.address.value;
+        var course = document.f.sub.value;
+        
+       
+
+       var sex = "";
+        for (i = 0; i < document.f.male.length; i++) {
+          if (document.f.male[i].checked) {
+            sex = document.f.male[i].value;
+          }
+        }
+
+        var edu = "";
+        for (i = 0; i < document.f.eq.length; i++) {
+          if (document.f.eq[i].checked) {
+            edu += document.f.eq[i].value + " ";
+          }
+        }
+
+        a = open("", "", "width=400px, height=400px");
+        with (a.document) {
+          write("Name: " + name + "<br>");
+          write("Email: " + email + "<br>");
+          write("Password: " + password + "<br>");
+          write("Address: " + address + "<br>");
+          write("Course: " + course + "<br>");
+          write("Education: " + edu + "<br>");
+          write('<button onclick="self.close()">close me</button>');
+          write('<button onclick="self.print()">Print</button>');
+        }
+      }
+    </script>
+  </body>
+</html>
